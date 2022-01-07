@@ -1,25 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default class ClassComponentDemo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { simpleMessage: "Welcome user!!!" };
+  }
+
+  render() {
+    return (
+      <div className='main'>
+        <div className='mainDiv'>
+          <ClassComponentNotes />
+          <h4>
+            {this.state.simpleMessage}
+          </h4>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const ClassComponentNotes = function () {
+  return (
+    <div>
+      <h1>Class Components</h1>
+
+      <p>Class components are considered the "React Way" of writing components.</p>
+      <dl>
+        <dt> Es6 JS Classes</dt>
+        <dd>Built on these, must understand them</dd>
+        <dt>Must extend Component</dt>
+        <dd>Class components need to extend the React Component.</dd>
+        <dt>render()</dt>
+        <dd>Class components must always have a render method.</dd>
+        <dt>export</dt>
+        <dd>Only one class component exported per file.</dd>
+      </dl>
+    </div>
+  )
+}
